@@ -15,7 +15,7 @@
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tài khoản: dinhcongtoan"
+            android:text="Account : dinhcongtoan"
             android:textColor="#751410"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginVertical="5dp"
-                    android:text="Thông tin vip:"
+                    android:text="VIP Infor:"
                     android:textColor="#751410"
                     android:textSize="18sp"
                     android:typeface="serif"
@@ -79,7 +79,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Tăng vip"
+                        android:text="VIP up"
                         android:textColor="@color/white" />
 
                     <ImageView
@@ -140,7 +140,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Tăng Level"
+                        android:text="Level up"
                         android:textColor="@color/white" />
 
                     <ImageView
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginVertical="5dp"
-                    android:text="Lực chiến:"
+                    android:text="Power:"
                     android:textColor="#751410"
                     android:textSize="18sp"
                     android:typeface="serif"
@@ -201,7 +201,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Tăng LC"
+                        android:text="Power up"
                         android:textColor="@color/white" />
 
                     <ImageView
@@ -227,7 +227,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginVertical="5dp"
-                    android:text="Mua vật phẩm:"
+                    android:text="Buy items:"
                     android:textColor="#751410"
                     android:textSize="18sp"
                     android:typeface="serif"
@@ -246,7 +246,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Cửa hàng"
+                        android:text="Store"
                         android:textColor="@color/white" />
 
                     <ImageView
@@ -273,7 +273,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginVertical="5dp"
-                    android:text="Sử dụng vật phẩm:"
+                    android:text="Use items:"
                     android:textColor="#751410"
                     android:textSize="18sp"
                     android:typeface="serif" />
@@ -291,7 +291,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Túi đồ"
+                        android:text="Bag"
                         android:textColor="@color/white" />
 
                     <ImageView
@@ -317,7 +317,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginVertical="5dp"
-                    android:text="Hoạt động:"
+                    android:text="Activity:"
                     android:textColor="#751410"
                     android:textSize="18sp"
                     android:typeface="serif" />
@@ -335,14 +335,14 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/btn_red"
                         android:elevation="1dp"
-                        android:text="Danh sách"
+                        android:text="Activity List"
                         android:textColor="@color/white" />
 
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center_vertical|start"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:background="@drawable/activity_icon"
                         android:elevation="2dp" />
                 </FrameLayout>

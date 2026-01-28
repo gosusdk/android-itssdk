@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
             int index = Arrays.asList(Servers).indexOf(serverInfo);
             if (index != -1) serverComboBox.setSelection(index);
         }
-        builder.setPositiveButton("Đăng nhập", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Login", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 serverInfo = serverComboBox.getSelectedItem().toString();
@@ -319,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
                 onGamePlay();
             }
         });
-        builder.setNegativeButton("Hủy bỏ", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

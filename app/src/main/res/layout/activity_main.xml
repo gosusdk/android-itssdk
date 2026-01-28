@@ -75,12 +75,12 @@
 
             <TextView
                 android:id="@+id/tvITSTask"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/FrLayoutITSTask"
                 android:layout_centerHorizontal="true"
                 android:shadowColor="@color/white"
-                android:text="Chương trình \n thưởng khích lệ"
+                android:text="Program \n Incentive Reward"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="10sp"
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnFastCommand"
                 android:layout_centerHorizontal="true"
-                android:text="Thao Tác nhanh"
+                android:text="Fast Action"
                 android:textColor="#e8c088"
                 android:textSize="12sp"
                 android:typeface="serif" />
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnLogout"
                 android:layout_centerHorizontal="true"
-                android:text="Đăng xuất"
+                android:text="@string/logout"
                 android:textColor="#FF0A0A"
                 android:textSize="14sp"
                 android:typeface="serif" />
@@ -163,7 +163,7 @@
             android:layout_width="250dp"
             android:layout_height="48dp"
             android:background="@drawable/btn_green"
-            android:text="Đăng nhập"
+            android:text="@string/login"
             android:textColor="#e8c088"
             android:typeface="serif" />
     </RelativeLayout>
