@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Update UI elements here
-                        mTaskNotification.setVisibility(ViewStub.VISIBLE);
+                        viewITSTask.setVisibility(ViewStub.VISIBLE);
 //                        if (number > 0) {
 //                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 //                            builder.setTitle("Thông báo").setMessage(String.format("Có %d nhiệm vụ đang chờ đợi bạn", number)).setPositiveButton("OK", null).show();
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mTaskNotification.setVisibility(View.GONE);
+        viewITSTask.setVisibility(View.GONE);
         ingameBgImageView.setVisibility(View.GONE);
         viewAction.setVisibility(View.GONE);
 
