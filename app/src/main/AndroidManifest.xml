@@ -4,23 +4,44 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:fullBackupContent="@xml/backup_rules_11"
+        android:dataExtractionRules="@xml/backup_rules_12"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ItsSDKDemo" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ItsSDKDemo" >
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!-- =========================== -->
+        <!-- ======= ITS SDK ======= -->
+        <!-- =========================== -->
+        <service
+            android:name="com.gosu.itc.its.utils.ITSFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.gosu.itc.its.WriteKey"
+            android:value="38BWhKjK8hLIrzhZLwoStJOwKIt" />
+        <meta-data
+            android:name="com.gosu.itc.its.SigningKey"
+            android:value="28f5440d19c44eef8ecf536db172bc33" />
+
+
     </application>
 
 </manifest>

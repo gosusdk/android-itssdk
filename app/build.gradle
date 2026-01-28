@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.example.itssdk_demo'
+    namespace 'com.itc.its'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.example.itssdk_demo"
+        applicationId "com.itc.its"
         minSdk 26
         targetSdk 36
         versionCode 1
@@ -41,4 +42,20 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+
+    //ITS SDK
+    implementation files('libs/its_sdk_1.1.2.aar')
+    implementation 'com.rudderstack.android.sdk:core:1.25.1'
+    implementation 'com.google.code.gson:gson:2+'
+
+    //for firebase
+    implementation platform('com.google.firebase:firebase-bom:33.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-messaging:23.4.1'
+
+    // Install Referrer
+    implementation "com.android.installreferrer:installreferrer:2.2"
+    // required for new life cycle methods
+    implementation 'androidx.lifecycle:lifecycle-process:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-common:2.6.1'
 }
