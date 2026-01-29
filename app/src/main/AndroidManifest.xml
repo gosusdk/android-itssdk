@@ -36,10 +36,10 @@
         </service>
         <meta-data
             android:name="com.gosu.itc.its.WriteKey"
-            android:value="Sample_key_values" />
+            android:value="34N067RTWhIKvGamjk8g2uItof9" />
         <meta-data
             android:name="com.gosu.itc.its.SigningKey"
-            android:value="Sample_key_values" />
+            android:value="d68fbfc498854790821cf14eb3447ada" />
 
 
     </application>

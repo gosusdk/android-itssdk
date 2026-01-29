@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private String accessToken;
     private String userName;
     private String userEmail;
+    private boolean isInitSuccess = false;
 
     private String serverInfo;
     private String characterId;
@@ -115,9 +116,15 @@ public class MainActivity extends AppCompatActivity {
             Log.e("ITS_TAG", "Error creating customInfo JSON:" + e);
             throw new RuntimeException(e);
         }
-        itsSdk.initSdk(MainActivity.this, "", "", customInfo, new iTSListener() {
+        itsSdk.initSdk(MainActivity.this, "your_its_writekey_value", "your_its_signingkey_value", customInfo, new iTSListener() {
+            @Override
+            public void onNotifyNewTask(int i) {
+
+            }
+
             @Override
             public void OnInitializeSuccess() {
+                isInitSuccess = true;
                 Log.d("ITS_TAG", "succeed");
             }
 
@@ -126,22 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("ITS_TAG", exception.getMessage());
             }
 
-            // Coming soon...
-            @Override
-            public void onNotifyNewTask(int number) {
-                Handler mainHandler = new Handler(Looper.getMainLooper());
-                mainHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        // Update UI elements here
-                        viewITSTask.setVisibility(ViewStub.VISIBLE);
-//                        if (number > 0) {
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                            builder.setTitle("Thông báo").setMessage(String.format("Có %d nhiệm vụ đang chờ đợi bạn", number)).setPositiveButton("OK", null).show();
-//                        }
-                    }
-                });
-            }
         });
     }
 
@@ -272,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
         accessToken = accesstoken;
 
         // Call ITS Tracking login method
-        itsSdk.login(userId, UserName, UserEmail);
+        if(isInitSuccess) itsSdk.login(userId, UserName, UserEmail);
 
         showServerSelectDialog(MainActivity.this);
     }
@@ -313,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
                 characterName = "nameof" + "-->" + characterId;
 
                 // Call ITS Tracking enter game method
-                itsSdk.enterGame(userId, characterId, characterName, serverInfo);
+                if(isInitSuccess) itsSdk.enterGame(userId, characterId, characterName, serverInfo);
 
                 onLoginSuccess(userId, characterId);
                 onGamePlay();
@@ -360,9 +351,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Call ITS Tracking start tutorial method
-        itsSdk.startTutorial(userId, characterId, characterName, serverInfo);
+        if(isInitSuccess) itsSdk.startTutorial(userId, characterId, characterName, serverInfo);
         // Call ITS Tracking complete tutorial method
-        itsSdk.completeTutorial(userId, characterId, characterName, serverInfo);
+        if(isInitSuccess) itsSdk.completeTutorial(userId, characterId, characterName, serverInfo);
     }
 
     public void onLoginSuccess(String UserId, String charId) {
@@ -378,7 +369,7 @@ public class MainActivity extends AppCompatActivity {
         //itsSdk.stopNotifyListener();
 
         // Call ITS Tracking logout method
-        itsSdk.logout();
+        if(isInitSuccess) itsSdk.logout();
 
         SharedPreferencesHelper.getInstance(MainActivity.this).removeAllData();
     }
@@ -500,7 +491,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferencesHelper.getInstance(context).saveData("cur_vip", String.valueOf(curVip));
 
                 // Call ITS Tracking vip level up method
-                itsSdk.vipUp(userId, characterId, serverInfo, curVip);
+                if(isInitSuccess) itsSdk.vipUp(userId, characterId, serverInfo, curVip);
                 Toast.makeText(MainActivity.this, "Vip level up: " + curVip, Toast.LENGTH_SHORT).show();
             }
         });
@@ -514,7 +505,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferencesHelper.getInstance(context).saveData("cur_level", String.valueOf(curLevel));
 
                 // Call ITS Tracking level up method
-                itsSdk.levelUp(userId, characterId, serverInfo, curLevel);
+                if(isInitSuccess) itsSdk.levelUp(userId, characterId, serverInfo, curLevel);
                 Toast.makeText(MainActivity.this, "Level up: " + curLevel, Toast.LENGTH_SHORT).show();
             }
         });
@@ -530,7 +521,7 @@ public class MainActivity extends AppCompatActivity {
                 // Call ITS Tracking power up method (custom event)
                 ItsTrackingProperty itsProperty = new ItsTrackingProperty();
                 itsProperty.put("power", String.valueOf(curPower));
-                itsSdk.trackCustomEvent("PowerUp", itsProperty);
+                if(isInitSuccess) itsSdk.trackCustomEvent("PowerUp", itsProperty);
 
                 Toast.makeText(MainActivity.this, "Power up: " + curPower, Toast.LENGTH_SHORT).show();
             }
@@ -576,8 +567,8 @@ public class MainActivity extends AppCompatActivity {
                 String amountsOfProductId = amounts[which];
 
                 // Call ITS Tracking purchase method
-                itsSdk.purchase("OrderIdTest", userId, characterId, serverInfo, selectedProductId, "", 1, "", Float.parseFloat(amountsOfProductId), "VND", Float.parseFloat(amountsOfProductId));
-                Toast.makeText(MainActivity.this, "Bạn đã thanh toán: " + selectedProductId, Toast.LENGTH_SHORT).show();
+                if(isInitSuccess)  itsSdk.purchase("OrderIdTest", userId, characterId, serverInfo, selectedProductId, "", 1, "", Float.parseFloat(amountsOfProductId), "VND", Float.parseFloat(amountsOfProductId));
+                Toast.makeText(MainActivity.this, "Purchased : " + selectedProductId, Toast.LENGTH_SHORT).show();
             }
         });
         builder.show();
@@ -615,5 +606,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        itsSdk.onActivityResumeListener();
+
     }
 }
