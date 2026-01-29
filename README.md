@@ -87,6 +87,45 @@ Add the following permissions to your `AndroidManifest.xml`:
     </application>
 </manifest>
 ```
+
+### 5. Backup Rules Configuration
+
+To ensure accurate tracking data, add backup rules to exclude SDK preferences from Android Auto Backup:
+
+**For Android 11 and below**, create `app/src/main/res/xml/backup_rules_11.xml`:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="sharedpref" path="its_prefs.xml"/>
+    <exclude domain="sharedpref" path="rl_prefs.xml"/>
+</full-backup-content>
+```
+
+**For Android 12 and above**, create `app/src/main/res/xml/backup_rules_12.xml`:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="its_prefs.xml"/>
+        <exclude domain="sharedpref" path="rl_prefs.xml"/>
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="its_prefs.xml"/>
+        <exclude domain="sharedpref" path="rl_prefs.xml"/>
+    </device-transfer>
+</data-extraction-rules>
+```
+
+Then reference these files in your `AndroidManifest.xml`:
+```xml
+<application
+    android:fullBackupContent="@xml/backup_rules_11"
+    android:dataExtractionRules="@xml/backup_rules_12">
+    <!-- Your app content -->
+</application>
+```
+
+**Note**: These backup rules prevent SDK tracking data from being restored on new devices, ensuring accurate user analytics and preventing duplicate tracking events.
 ## Quick Start
      
 ### 1. Initialize SDK
