@@ -44,7 +44,7 @@ dependencies {
     androidTestImplementation libs.espresso.core
 
     //ITS SDK
-    implementation files('libs/its_sdk_1.1.1.aar')
+    implementation files('libs/its_sdk-v1.1.1.aar')
     implementation 'com.rudderstack.android.sdk:core:1.25.1'
     implementation 'com.google.code.gson:gson:2+'
 
