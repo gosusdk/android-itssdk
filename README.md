@@ -1,4 +1,4 @@
-# ITS Tracking SDK for Android v1.1.0
+# ITS Tracking SDK for Android v1.1.x
 
 ## Overview
 **ITS Tracking SDK** is an in-app event tracking SDK for Android applications, enabling the collection and analysis of user interaction data to optimize app performance and user experience.
@@ -231,6 +231,12 @@ For issues, questions, or feature requests:
 Copyright © 2026 ITS Tracking. All rights reserved.
 
 ## Changelog
+
+### Version 1.1.1
+
+- ✅ **Tracking version SDK**: Added SDK version tracking for better analytics and debugging
+- ⚡ **Update polling time**: Optimized data polling intervals for improved performance
+- 🐛 **Fix bug missing app_mode**: Resolved issue where app_mode parameter was not being properly retained
 
 ### Version 1.x.x (Current)
 
