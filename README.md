@@ -218,13 +218,6 @@ ITS Tracking SDK is designed with privacy in mind:
 - ✅ GDPR compliant architecture
 - 🛡️ No personal data collected without explicit tracking calls
 
-## Support
-
-For issues, questions, or feature requests:
-
-- 📧 Email: support@its-tracking.com
-- 📝 Documentation: https://docs.its-tracking.com
-- 🐛 Issues: https://github.com/your-repo/android-itssdk/issues
 
 ## License
 
